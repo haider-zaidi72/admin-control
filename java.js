@@ -9,7 +9,7 @@ let adminForm = document.getElementById('admin-form');
 // let show = document.getElementById('show')
 
 //============== local data storage=====================
-let data = JSON.parse(localStorage.getItem('userdata')) || []
+// let data = JSON.parse(localStorage.getItem('userdata')) || []
 //==================user time=========================
 let userTime = new Date().toLocaleTimeString();
 
@@ -25,9 +25,9 @@ if (userForm) {
             number: userContact.value,
             time: new Date ().toLocaleTimeString(),
         };
-        let oldData = JSON.parse(localStorage.getItem('userdata')) || [];
-        oldData.push(user);
-        localStorag.setItem('userdata', JSON.stringify(oldData));
+        let data = JSON.parse(localStorage.getItem('userdata')) || [];
+        data.push(user);
+        localStorage.setItem('userdata', JSON.stringify(data));
         userForm.reset();
         alert("Data saved sucessfully!");
     });
@@ -64,6 +64,9 @@ function render() {
                     <td><button onclick="editUser(${index})">Edit</button></td>
                 </tr>
             `;
+            function editUser(){
+                 
+            }
         });
     }
 }
